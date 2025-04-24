@@ -19,7 +19,7 @@ class Detection(object):
     self.parser = JsonOutputParser(pydantic_object = DetRes)
     self.instruction = self.parser.get_format_instructions()
   def detect(self, image):
-    prompt = f"""Otline the position of each object and output all the coordinates in JSON format."""
+    prompt = f"""Outline the position of each object and output all the coordinates in JSON format."""
     result = self.qwen.inference(prompt, image)
     outputs = self.parser.parse(result)
     return outputs
